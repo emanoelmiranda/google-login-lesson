@@ -1,26 +1,32 @@
 ;(function () {
-    gapi.load('auth2', function () {
+    gapi.load('auth2', () => {
         const that = this,
-            clientId = '',
+            clientId = document.querySelector('.google-client-id'),
             scope = 'profile email',
             icon = document.querySelector('.account-image'),
             name = document.querySelector('.profile-name'),
             email = document.querySelector('.account-email'),
-            buttonLogin = document.querySelector('.js-login');
+            form = document.querySelector('form');
 
-        buttonLogin.addEventListener('click', function () {
-            that.auth2 = gapi.auth2.init({
-                client_id: clientId,
-                scope: scope
-            });
+        form.addEventListener('submit', function (event) {
+            event.preventDefault();
 
-            that.auth2.signIn().then(function (response) {
-                const profile = response.getBasicProfile();
+            if (form.checkValidity()) {
+                that.auth2 = gapi.auth2.init({
+                    client_id: clientId.value,
+                    scope: scope
+                });
 
-                icon.src = profile.getImageUrl();
-                name.innerHTML = profile.getName();
-                email.innerHTML = profile.getEmail();
-            });
+                that.auth2.signIn().then((response) => {
+                    const profile = response.getBasicProfile();
+
+                    icon.src = profile.getImageUrl();
+                    name.innerHTML = profile.getName();
+                    email.innerHTML = profile.getEmail();
+                });
+            } else {
+                form.classList.add('was-validated');
+            }
         });
     });
 }());

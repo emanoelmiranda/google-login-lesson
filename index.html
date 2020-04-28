@@ -7,30 +7,43 @@
     </head>
     <body class="bg-dark">
         <div class="d-flex col-md-4 offset-md-4 mt-3 pt-3">
-            <div class="card w-100">
+            <form class="needs-validation" novalidate>
+                <div class="card w-100">
               <div class="card-body">
-                <h4 class="text-center">Google login lesson</h4>
-                <hr/>
-                <div class="row mb-3">
-                    <div class="col-sm-4">
-                        <img src="img/user.png" class="p-1 rounded border img-fluid account-image w-100" alt="user">
+                <div class="text-center">
+                    <h4>Google login lesson</h4>
+                </div>
+                <div class="input-group mt-3 mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="clientId">CLIENT ID</span>
                     </div>
-                    <div class="col-sm-7">
-                        <div>
-                            <small>Name:</small>
-                            <h5 class="text-muted profile-name">My Name</h5>
+                    <input type="text" class="form-control google-client-id" placeholder="ClientId" aria-describedby="clientId" required>
+                    <div class="invalid-feedback text-center">Invalid clientId</div>
+                 </div>
+                <div class="border p-2 rounded bg-light">
+                    <div class="row mb-3">
+                        <div class="col-sm-4">
+                            <img src="img/user.png" class="p-1 rounded border img-fluid account-image w-100 bg-white" alt="user">
                         </div>
-                        <div>
-                            <small>E-mail:</small>
-                            <h5 class="text-muted account-email">example@gmail.com</h5>
+                        <div class="col-sm-7">
+                            <div>
+                                <small>Name:</small>
+                                <h5 class="text-muted profile-name">My Name</h5>
+                            </div>
+                            <div>
+                                <small>E-mail:</small>
+                                <h5 class="text-muted account-email">example@gmail.com</h5>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <hr/>
-
-                <button class="btn btn-danger btn-block js-login">Google Login</button>
+                <div class="border p-2 rounded bg-light mb-3 mt-3">
+                    MATGIN
+                </div>
+                <button class="btn btn-danger btn-block" type="submit">Google Login</button>
               </div>
             </div>
+            </form>
         </div>
         <script src="https://apis.google.com/js/platform.js"></script>
         <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
